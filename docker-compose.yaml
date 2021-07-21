@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - './frontend:/app'
+    ports:
+      - '1200:80'
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - './backend:/app'
+    ports:
+      - '1300:80'
