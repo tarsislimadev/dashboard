@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node ./server.js",
+    "dev": "npx nodemon ./server.js"
   },
   "dependencies": {
+    "amqplib": "^0.8.0",
+    "aws-sdk": "^2.952.0",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1"
   },
   "devDependencies": {
+    "@types/node": "^16.4.0",
     "eslint": "^7.31.0"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "host-runner",
+  "version": "0.1.0",
+  "description": "",
+  "main": "runner-aws.js",
+  "scripts": {
+    "start": "node ./runner-aws.js",
+    "dev": "npx nodemon ./runner-aws.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "aws-sdk": "^2.953.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

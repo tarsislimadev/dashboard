@@ -2,6 +2,8 @@ version: '3'
 
 services:
   frontend:
+    container_name: frontend
+    restart: always
     build:
       context: ./frontend
     volumes:
@@ -9,9 +11,40 @@ services:
     ports:
       - '1200:80'
   backend:
+    container_name: backend
+    restart: always
+    hostname: backend
     build:
       context: ./backend
     volumes:
       - './backend:/app'
     ports:
       - '1300:80'
+    links:
+      - 'localstack'
+  localstack:
+    container_name: localstack
+    restart: always
+    # image: localstack/localstack
+    image: localstack/localstack-full
+    ports:
+      - '4566:4566'
+      - '4571:4571'
+    environment:
+      - SERVICES=ec2,sqs
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - START_WEB=1
+    volumes:
+      - '${TMPDIR:-/tmp/localstack}:/tmp/localstack'
+  runner:
+    container_name: runner
+    restart: always
+    hostname: runner
+    build:
+      context: ./runner
+    volumes:
+      - './runner:/app'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    links:
+      - 'backend'
+      - 'localstack'

@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "loiane.angular-extension-pack",
+    "ms-azuretools.vscode-docker",
+    "christian-kohler.npm-intellisense"
+  ]
+}

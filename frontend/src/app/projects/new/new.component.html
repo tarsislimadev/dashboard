@@ -1,0 +1,29 @@
+<app-page>
+  <h1>New project</h1>
+  <div class="input">
+    <label>
+      <div class="input-title">Framework</div>
+      <select [(ngModel)]="modelData.framework">
+        <option *ngFor="let item of formData.frameworks" [value]="item.key">{{ item.value }}</option>
+      </select>
+    </label>
+  </div>
+  <div class="input">
+    <label>
+      <div class="input-title">Origin</div>
+      <select [(ngModel)]="modelData.origin">
+        <option *ngFor="let item of formData.origins" [value]="item.key">{{ item.value }}</option>
+      </select>
+    </label>
+  </div>
+  <div class="input">
+    <label>
+      <div class="input-title">URL</div>
+      <input class="input-text" type="text" [(ngModel)]="modelData.url" />
+    </label>
+  </div>
+  <div class="buttons">
+    <button (click)="onCancel()">cancel</button>
+    <button (click)="onSave()" *ngIf="canSave()">save</button>
+  </div>
+</app-page>
