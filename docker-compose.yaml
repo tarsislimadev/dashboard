@@ -1,5 +1,7 @@
 version: '3'
 
+# docker-compose up --remove-orphans --force-recreate --build 
+
 services:
   frontend:
     container_name: frontend
