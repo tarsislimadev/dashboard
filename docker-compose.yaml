@@ -27,7 +27,6 @@ services:
   localstack:
     container_name: localstack
     restart: always
-    # image: localstack/localstack
     image: localstack/localstack-full
     ports:
       - '4566:4566'
